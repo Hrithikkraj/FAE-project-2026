@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('partials/head', { 
+        title: 'Universal Instrument Tuner : Swara', 
+        description: 'A precision chromatic tuner for all musical instruments. Tuning for guitars, violins, cellos, and more.',
+        canonical: 'https://dhwani.mgks.dev/instrument-tuner/'
+    }) %>
+</head>
+<body>
+    <%- include('partials/header', { isHome: false, toolName: 'Instrument Tuner' }) %>
+
+    <main class="it-page">
+        <section class="it-device" aria-label="Swara chromatic tuner">
+            <span class="it-screw it-screw-top-left" aria-hidden="true"></span>
+            <span class="it-screw it-screw-top-right" aria-hidden="true"></span>
+            <span class="it-screw it-screw-bottom-left" aria-hidden="true"></span>
+            <span class="it-screw it-screw-bottom-right" aria-hidden="true"></span>
+
+            <div class="it-engraving">SWARA CHROMATIC TUNER</div>
+
+            <section class="it-lcd" aria-live="polite" aria-label="Detected note">
+                <div class="it-lcd-note">
+                    <span class="it-lcd-ghost" aria-hidden="true">88</span>
+                    <span id="current-note" class="it-note-value">- -</span>
+                    <span id="current-octave" class="it-octave-value"></span>
+                </div>
+                <div class="it-lcd-details">
+                    <span id="frequency-display">-- Hz</span>
+                    <span>A4 = 440</span>
+                </div>
+            </section>
+
+            <section class="it-led-section" aria-label="Tuning accuracy">
+                <div id="led-strip" class="it-led-strip" aria-hidden="true"></div>
+                <div class="it-led-readout">
+                    <span class="it-flat-symbol" aria-hidden="true">♭</span>
+                    <span id="tuning-status" class="it-tuning-status">IN TUNE</span>
+                    <span class="it-sharp-symbol" aria-hidden="true">♯</span>
+                </div>
+                <div id="cents-display" class="it-cents-display">--</div>
+                <div id="string-lamps" class="it-string-lamps" aria-label="Instrument strings" hidden></div>
+            </section>
+
+            <section class="it-ruler-section" aria-label="Chromatic note ruler">
+                <div id="note-ruler" class="it-note-ruler it-is-silent">
+                    <div id="note-tape" class="it-note-tape" aria-hidden="true"></div>
+                    <span class="it-note-marker" aria-hidden="true"></span>
+                </div>
+            </section>
+
+            <div class="it-instrument-selector" role="group" aria-label="Instrument">
+                <button class="it-instrument-button" type="button" data-instrument="chromatic" aria-pressed="true">
+                    <span class="it-button-lamp" aria-hidden="true"></span><span>Chromatic</span>
+                </button>
+                <button class="it-instrument-button" type="button" data-instrument="guitar" aria-pressed="false">
+                    <span class="it-button-lamp" aria-hidden="true"></span><span>Guitar</span>
+                </button>
+                <button class="it-instrument-button" type="button" data-instrument="bass" aria-pressed="false">
+                    <span class="it-button-lamp" aria-hidden="true"></span><span>Bass</span>
+                </button>
+                <button class="it-instrument-button" type="button" data-instrument="violin" aria-pressed="false">
+                    <span class="it-button-lamp" aria-hidden="true"></span><span>Violin</span>
+                </button>
+                <button class="it-instrument-button" type="button" data-instrument="ukulele" aria-pressed="false">
+                    <span class="it-button-lamp" aria-hidden="true"></span><span>Ukulele</span>
+                </button>
+            </div>
+
+            <button id="start-btn" class="it-footswitch" type="button" aria-pressed="false">
+                <span class="it-footswitch-ring" aria-hidden="true"></span>
+                <span id="start-label" class="it-footswitch-label">START</span>
+            </button>
+        </section>
+    </main>
+
+    <%- include('partials/footer') %>
+    <script type="module" src="/src/common.js"></script>
+    <script type="module" src="script.js"></script>
+</body>
+</html>

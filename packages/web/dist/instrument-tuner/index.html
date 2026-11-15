@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="A precision chromatic tuner for all musical instruments. Tuning for guitars, violins, cellos, and more.">
+<meta name="keywords" content="Hindustani music, vocal tuner, swar, pitch detection, raga, online tuner, music practice, Indian classical music, shruti, intonation, just intonation, web audio, metronome, chromatic tuner">
+<meta name="author" content="Ghazi Khan (@mgks)">
+
+<title>Universal Instrument Tuner : Swara</title>
+
+<!-- Favicons -->
+<link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://dhwani.mgks.dev/instrument-tuner/">
+<meta property="og:title" content="Universal Instrument Tuner : Swara">
+<meta property="og:description" content="A precision chromatic tuner for all musical instruments. Tuning for guitars, violins, cellos, and more.">
+<meta property="og:image" content="https://dhwani.mgks.dev/images/preview.png">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://dhwani.mgks.dev/instrument-tuner/">
+<meta property="twitter:title" content="Universal Instrument Tuner : Swara">
+<meta property="twitter:description" content="A precision chromatic tuner for all musical instruments. Tuning for guitars, violins, cellos, and more.">
+<meta property="twitter:image" content="https://dhwani.mgks.dev/images/preview.png">
+
+<link rel="canonical" href="https://dhwani.mgks.dev/instrument-tuner/" />
+
+<script>
+    // Prevent theme flash
+    (function() {
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+    })();
+</script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-93TKP8Z70J"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-93TKP8Z70J');
+</script>
+  <script type="module" crossorigin src="/assets/instrument-lWjgXG_G.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/common-D0704sQT.js">
+  <link rel="stylesheet" crossorigin href="/assets/common-CfK9HyFQ.css">
+<link rel="manifest" href="/manifest.webmanifest"><script id="vite-plugin-pwa:register-sw" src="/registerSW.js"></script></head>
+<body>
+    <div class="header-container tool-header">
+    
+        <div class="tool-nav-wrapper">
+            <a href="/" class="brand-link">Swara</a>
+            <span class="tool-name-label">Instrument Tuner</span>
+        </div>
+    
+
+    
+    <button aria-label="Toggle Dark Mode" class="theme-btn-header theme-toggle">
+        <!-- Sun Icon (Visible in Dark Mode) -->
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path>
+        </svg>
+        <!-- Moon Icon (Visible in Light Mode) -->
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+    </button>
+    
+</div>
+
+    <main class="it-page">
+        <section class="it-device" aria-label="Swara chromatic tuner">
+            <span class="it-screw it-screw-top-left" aria-hidden="true"></span>
+            <span class="it-screw it-screw-top-right" aria-hidden="true"></span>
+            <span class="it-screw it-screw-bottom-left" aria-hidden="true"></span>
+            <span class="it-screw it-screw-bottom-right" aria-hidden="true"></span>
+
+            <div class="it-engraving">SWARA CHROMATIC TUNER</div>
+
+            <section class="it-lcd" aria-live="polite" aria-label="Detected note">
+                <div class="it-lcd-note">
+                    <span class="it-lcd-ghost" aria-hidden="true">88</span>
+                    <span id="current-note" class="it-note-value">- -</span>
+                    <span id="current-octave" class="it-octave-value"></span>
+                </div>
+                <div class="it-lcd-details">
+                    <span id="frequency-display">-- Hz</span>
+                    <span>A4 = 440</span>
+                </div>
+            </section>
+
+            <section class="it-led-section" aria-label="Tuning accuracy">
+                <div id="led-strip" class="it-led-strip" aria-hidden="true"></div>
+                <div class="it-led-readout">
+                    <span class="it-flat-symbol" aria-hidden="true">♭</span>
+                    <span id="tuning-status" class="it-tuning-status">IN TUNE</span>
+                    <span class="it-sharp-symbol" aria-hidden="true">♯</span>
+                </div>
+                <div id="cents-display" class="it-cents-display">--</div>
+                <div id="string-lamps" class="it-string-lamps" aria-label="Instrument strings" hidden></div>
+            </section>
+
+            <section class="it-ruler-section" aria-label="Chromatic note ruler">
+                <div id="note-ruler" class="it-note-ruler it-is-silent">
+                    <div id="note-tape" class="it-note-tape" aria-hidden="true"></div>
+                    <span class="it-note-marker" aria-hidden="true"></span>
+                </div>
+            </section>
+
+            <div class="it-instrument-selector" role="group" aria-label="Instrument">
+                <button class="it-instrument-button" type="button" data-instrument="chromatic" aria-pressed="true">
+                    <span class="it-button-lamp" aria-hidden="true"></span><span>Chromatic</span>
+                </button>
+                <button class="it-instrument-button" type="button" data-instrument="guitar" aria-pressed="false">
+                    <span class="it-button-lamp" aria-hidden="true"></span><span>Guitar</span>
+                </button>
+                <button class="it-instrument-button" type="button" data-instrument="bass" aria-pressed="false">
+                    <span class="it-button-lamp" aria-hidden="true"></span><span>Bass</span>
+                </button>
+                <button class="it-instrument-button" type="button" data-instrument="violin" aria-pressed="false">
+                    <span class="it-button-lamp" aria-hidden="true"></span><span>Violin</span>
+                </button>
+                <button class="it-instrument-button" type="button" data-instrument="ukulele" aria-pressed="false">
+                    <span class="it-button-lamp" aria-hidden="true"></span><span>Ukulele</span>
+                </button>
+            </div>
+
+            <button id="start-btn" class="it-footswitch" type="button" aria-pressed="false">
+                <span class="it-footswitch-ring" aria-hidden="true"></span>
+                <span id="start-label" class="it-footswitch-label">START</span>
+            </button>
+        </section>
+    </main>
+
+    <footer class="footer">
+    
+</footer>
+</body>
+</html>

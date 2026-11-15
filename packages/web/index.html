@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head', { 
+        title: 'Swara : Your Musical Toolkit', 
+        description: 'A comprehensive musical toolkit for classical and modern musicians. Tuners, metronomes, drones, and more.',
+        canonical: 'https://dhwani.mgks.dev'
+    }) %>
+</head>
+<body>
+    <%- include('./partials/header', { isHome: true }) %>
+
+    <main class="menu-grid">
+        <a href="/swar-tuner/" class="menu-item glass" id="swar-tuner-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                <path d="M9 18V5l12-2v13"></path>
+                <circle cx="6" cy="18" r="3"></circle>
+                <circle cx="18" cy="16" r="3"></circle>
+            </svg>
+            <span>Swar Tuner</span>
+        </a>
+
+        <a href="/instrument-tuner/" class="menu-item glass" id="instrument-tuner-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                <path d="M18 10L8 20l-4-4L14 6l4 4z"></path>
+                <path d="M17 7l3-3"></path>
+                <path d="M5 19l-3 3"></path>
+            </svg>
+            <span>Instrument Tuner</span>
+        </a>
+
+        <a href="/metronome/" class="menu-item glass" id="metronome-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            <span>Metronome</span>
+        </a>
+
+        <a href="/tanpura/" class="menu-item glass" id="tanpura-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                <path d="M12 2v20"></path>
+                <path d="M5 22h14"></path>
+                <path d="M12 2C8 2 5 5 5 10v4c0 1.5 1 3 3 4l4 2 4-2c2-1 3-2.5 3-4v-4c0-5-3-8-7-8z"></path>
+            </svg>
+            <span>Tanpura Drone</span>
+        </a>
+
+        <a href="/instructions/" class="menu-item glass" id="instructions-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+            </svg>
+            <span>How to use</span>
+        </a>
+    </main>
+    
+    <button aria-label="Toggle Dark Mode" class="home-theme-toggle theme-toggle glass">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path>
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+    </button>
+
+    <%- include('./partials/footer') %>
+    <script type="module" src="/src/common.js"></script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('partials/head', { 
+        title: 'Hindustani Swar Tuner : Swara', 
+        description: 'A real-time Hindustani classical music vocal tuner. Practice swars, improve intonation, and get visual feedback.',
+        canonical: 'https://dhwani.mgks.dev/swar-tuner/'
+    }) %>
+</head>
+<body>
+    <%- include('partials/header', { isHome: false, toolName: 'Swar Tuner' }) %>
+
+    <main class="st-page">
+        <section class="st-workspace" aria-label="Swar tuner">
+            <div class="st-graph-card">
+                <canvas id="pitch-canvas" aria-label="Scrolling pitch graph"></canvas>
+            </div>
+
+            <aside class="st-panel" aria-live="polite">
+                <div class="st-panel-label">NOW SINGING</div>
+                <div class="st-note-row">
+                    <span id="current-swar" class="st-note-name st-is-silent">--</span>
+                    <span id="current-octave" class="st-octave"></span>
+                </div>
+                <div id="cents-display" class="st-cents">--</div>
+
+                <div class="st-cents-meter" aria-label="Cents deviation from the swar">
+                    <div class="st-cents-track">
+                        <span class="st-zone st-zone-out-low"></span>
+                        <span class="st-zone st-zone-warn-low"></span>
+                        <span class="st-zone st-zone-good"></span>
+                        <span class="st-zone st-zone-warn-high"></span>
+                        <span class="st-zone st-zone-out-high"></span>
+                        <span id="cents-thumb" class="st-cents-thumb st-is-muted"></span>
+                    </div>
+                    <div class="st-cents-labels" aria-hidden="true">
+                        <span>-50</span><span>-30</span><span>-15</span><span>0</span><span>+15</span><span>+30</span><span>+50</span>
+                    </div>
+                </div>
+
+                <div id="tuner-status" class="st-status" data-status="silent">--</div>
+                <div id="frequency-display" class="st-frequency">--</div>
+            </aside>
+        </section>
+
+        <div class="st-bottom-bar">
+            <button id="start-btn" class="st-listen-btn" type="button">Start Listening</button>
+            <span id="bottom-frequency" class="st-bottom-frequency">--</span>
+            <p class="st-hint">Humming is recommended for better stability.</p>
+        </div>
+    </main>
+
+    <%- include('partials/footer') %>
+    <script type="module" src="/src/common.js"></script>
+    <script type="module" src="script.js"></script>
+</body>
+</html>
